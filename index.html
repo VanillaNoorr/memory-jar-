@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Memory Jar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #fde2e4, #fadadd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #4a2c2a;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .jar {
+      font-size: 5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .jar:hover {
+      transform: scale(1.1);
+    }
+
+    .note {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      background: #fff5f6;
+      border-radius: 15px;
+      font-size: 1rem;
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #7a4a47;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Our Memory Jar</h1>
+    <p>Whenever you miss me, tap the jar 💌</p>
+
+    <div class="jar" onclick="openJar()">🫙</div>
+
+    <div class="note" id="note"></div>
+
+    <footer>
+      Made with love, just for you ❤️
+    </footer>
+  </div>
+
+  <script>
+    const memories = [
+      "I love the way you make me feel safe even from miles away.",
+      "Every message from you feels like a warm hug.",
+      "I’m so proud of the person you are becoming.",
+      "Even on my worst days, thinking of you makes things lighter.",
+      "You are my favorite part of every day.",
+      "Distance means nothing because my heart knows where it belongs.",
+      "Thank you for choosing me, every single day.",
+      "I smile like an idiot whenever I think about us.",
+      "You are my calm, my chaos, and my home.",
+      "No matter how far we are, I’m always with you."
+    ];
+
+    function openJar() {
+      const note = document.getElementById('note');
+      const randomIndex = Math.floor(Math.random() * memories.length);
+      note.innerText = memories[randomIndex];
+      note.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
